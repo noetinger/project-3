@@ -1,0 +1,12 @@
+auctionItems = {
+    "item": "",
+    "name": "",
+    "description": "",
+    "condition": "",
+    "retailValue": 12,
+    "openingBid": 12,
+    "bidIncrement": 12,
+    "image": "NY",
+    "currentBid": 12,
+    "currentBidder": "You"
+}
