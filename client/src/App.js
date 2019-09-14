@@ -1,23 +1,16 @@
 import React, { Component } from "react";
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-// import Nav from './components/Nav';
-// import search from './pages/search';
+import AuctionList from './pages/AuctionList';
 // import Bookshelf from './pages/Bookshelf';
 // import NoMatch from './pages/NoMatch'
 import "./App.css";
 
-const App = () => (
-  <Router>
+function App(){
+  render (
     <div>
-      <Nav/>
-      <Switch>
-        <Route exact path="/" component={search}/>
-        <Route exact path="/search" component={search}/>
-        <Route exact path="/bookshelf" component={Bookshelf}/>
-        <Route component={NoMatch}/>
-      </Switch>
+      <AuctionList />
     </div>
-  </Router>
-);
+  )
+}
 
 export default App;
