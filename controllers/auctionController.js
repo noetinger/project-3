@@ -4,16 +4,14 @@ module.exports = {
     findAll: function (req, res) {
         db.Auction
             .find({})
-            .sort({
-                date: -1
-            })
+            .sort({date: -1})
             .then(dbAuctionItems => res.json(dbAuctionItems))
             .catch(err => res.status(502).json(err))
     },
 
-    update: function (req, res) {
+    updateOne: function (req, res) {
         db.Auction
-            .create(req.body)
+            .find({})
             .then(dbAuction => res.json(dbAuction))
             .catch(err => res.status(502).json(err))
     }

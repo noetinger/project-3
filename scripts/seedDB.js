@@ -63,11 +63,11 @@ const itemSeed = [{
 
 mongoose.connect(
     process.env.MONGODB_URI ||
-    "mongodb://localhost:27017/auctionitems"
+    "mongodb://localhost:27017/auction"
 ).then(() => {
     console.log('this connected')
     // console.log(db)
-    // console.log(db.auctionitems)
+    // console.log(db.auction)
     db.AuctionItem
         .deleteMany({})
         .then(() => db.AuctionItem.collection.insertMany(itemSeed))
