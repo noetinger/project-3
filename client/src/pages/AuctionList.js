@@ -1,31 +1,89 @@
-//Code for the main Auction List Page that displays
-//  all the available items to bid on.
+import React, { Component } from "react";
+import BidBtn from "../components/BidBtn";
+import Jumbotron from "../components/Jumbotron";
+import API from "../utils/API";
+import { Link } from "react-router-dom";
+import { Col, Row, Container } from "../components/Grid";
+import { List, ListItem } from "../components/List";
+import { Input, TextArea, FormBtn } from "../components/Form";
 
-import React, {Component} from 'react';
-// import API from '../utils/API';
-import Navbar from '../components/Navbar';
-import Footer from "../components/Footer";
-import AuctionListItem from '../components/AuctionListItem'
+class AuctionItems extends Component {
+  state = {
+    items: [],
+    name: "",
+    currentBidder: ""
+  };
 
-class AuctionList extends Component {
-    state = {auctionItems: []};
+  componentDidMount() {
+    this.loadItems();
+  }
 
-    //Methods to Query the database to GET all the books in the database.
+  loadItems = () => {
+    API.getItems()
+      .then(res =>
+        this.setState({ items: res.data})
+      )
+      .catch(err => console.log(err));
+  };
 
-    //Do we need other Query's?
+  saveItem = id => {
+    API.saveItem(id)
+      .then(res => this.loadItems())
+      .catch(err => console.log(err));
+  };
 
-    //Lifecycle Method - once the Auction List Items Components mounts it runs the 'loadBookshelf' method.
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
 
-    render(){
-        return(
-            <div className="container">
-                <Navbar />
-                <AuctionListItem />
-                <Footer />
-            </div>
-        )
+  handleFormSubmit = event => {
+    event.preventDefault();
+    if (this.state.title && this.state.author) {
+      API.saveItem({
+        title: this.state.title,
+        author: this.state.author,
+        synopsis: this.state.synopsis
+      })
+        .then(res => this.loadItems())
+        .catch(err => console.log(err));
     }
+  };
 
+  render() {
+    return (
+      <Container fluid>
+        <Row>
+          <Col size="md-12 sm-12">
+            <Jumbotron>
+              <h1>Auction Items</h1>
+            </Jumbotron>
+            {this.state.items.length ? (
+              <List>
+                {this.state.items.map(auctionitem => (
+                  <ListItem key={auctionitem._id}>
+                    <Link to={"/auction/" + auctionitem._id}>
+                      <strong>
+                        <p>{auctionitem.name} {auctionitem.description}</p>
+                        <p><img src= {auctionitem.image}/></p>
+                        <p>Current Bid: ${auctionitem.currentBid}</p>
+                        <p>Current Bidder: {auctionitem.currentBidder}</p>
+                        <p>Retail Value: ${auctionitem.retailValue}</p>
+                      </strong>
+                    </Link>
+                  </ListItem>
+                ))}
+              </List>
+            ) : (
+              <h3>No Results to Display</h3>
+            )}
+          </Col>
+        </Row>
+      </Container>
+    );
+  }
 }
 
-export default  AuctionList
+export default AuctionItems;

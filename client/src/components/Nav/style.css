@@ -1,13 +1,14 @@
 /* Styles for Footer */
 .text-light{
     margin: 55px !important;
-    
  };
+
  div{
      width:100% !important;
- }
+ };
+
  @media screen and (max-width: 600px) {
      .text-light {
        color: red !important;
      }
- }
+ };
