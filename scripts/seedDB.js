@@ -8,7 +8,7 @@ const itemSeed = [{
         name: "Chapin 20075",
         description: "Bleach and disinfectant sprayer",
         condition: "Open box - new",
-        retailValue: 1499,
+        retailValue: 14.99,
         openingBid: 3,
         bidIncrement: 1,
         image: "https://www.zoro.com/static/cms/product/full/Z008D-fo5oy.JPG",
@@ -19,7 +19,7 @@ const itemSeed = [{
         name: "Chapin 20075",
         description: "Bleach and disinfectant sprayer",
         condition: "Open box - new",
-        retailValue: 1499,
+        retailValue: 14.99,
         openingBid: 3,
         bidIncrement: 1,
         image: "https://www.zoro.com/static/cms/product/full/Z008D-fo5oy.JPG",
@@ -30,7 +30,7 @@ const itemSeed = [{
         name: "Chapin Sure Spray",
         description: "lawn and garden sprayer",
         condition: "Open box - new",
-        retailValue: 1400,
+        retailValue: 14.00,
         openingBid: 3,
         bidIncrement: 1,
         image: "https://chapinmfg.com/Portals/0/Hotcakes/Data/products/ca87cac2-a2ac-4772-ad9d-65177db13dbf/medium/chapin-20010-1-gallon-surespray-sprayer.jpg",
@@ -41,7 +41,7 @@ const itemSeed = [{
         name: "Eliminator",
         description: "multi-purpose sprayer ",
         condition: "Open box - new",
-        retailValue: 699,
+        retailValue: 6.99,
         openingBid: 1,
         bidIncrement: 1,
         image: "https://www.zoro.com/static/cms/product/full/Z008D-fo5oy.JPG",
@@ -52,7 +52,7 @@ const itemSeed = [{
         name: "Scotts",
         description: "Multi-use Sprayer",
         condition: "Open box - new",
-        retailValue: 2250,
+        retailValue: 22.50,
         openingBid: 3,
         bidIncrement: 2,
         image: "https://i.ebayimg.com/images/g/VrQAAOSwraNdLp9R/s-l1600.jpg",
@@ -63,11 +63,11 @@ const itemSeed = [{
 
 mongoose.connect(
     process.env.MONGODB_URI ||
-    "mongodb://localhost:27017/auctionitems"
+    "mongodb://localhost:27017/auction"
 ).then(() => {
     console.log('this connected')
     // console.log(db)
-    // console.log(db.auctionitems)
+    // console.log(db.auction)
     db.AuctionItem
         .deleteMany({})
         .then(() => db.AuctionItem.collection.insertMany(itemSeed))
