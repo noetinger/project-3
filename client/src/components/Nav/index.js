@@ -22,7 +22,7 @@ function Nav (props) {
                     <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a className="dropdown-item" href="#">My Bids</a>
                     <div className="dropdown-divider"></div>
-                    <a className="dropdown-item" href="#">Log Out</a>
+                    <a className="dropdown-item" href="/">Log Out</a>
                     </div>
                 </li>
             </ul>
