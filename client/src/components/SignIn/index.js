@@ -1,3 +1,4 @@
+//Sign In Component
 import React, { Component } from 'react';
 import 'whatwg-fetch';
 
@@ -6,32 +7,34 @@ import {
   setInStorage,
 } from '../../utils/storage';
 
-class Home extends Component {
+class SignIn extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       isLoading: true,
       token: '',
-      signUpError: '',
+      // signUpError: '',
       signInError: '',
       signInEmail: '',
       signInPassword: '',
-      signUpFirstName: '',
-      SignUpLastName: '',
+      // signUpEmail: '',
+      // signUpPassword: '',
+      // signUpFirstName: '',
+      // SignUpLastName: '',
     };
 
     this.onTextboxChangeSignInEmail = this.onTextboxChangeSignInEmail.bind(this);
     this.onTextboxChangeSignInPassword = this.onTextboxChangeSignInPassword.bind(this);
-    this.onTextboxChangeSignUpEmail = this.onTextboxChangeSignUpEmail.bind(this);
-    this.onTextboxChangeSignUpPassword = this.onTextboxChangeSignUpPassword.bind(this);
+    // this.onTextboxChangeSignUpEmail = this.onTextboxChangeSignUpEmail.bind(this);
+    // this.onTextboxChangeSignUpPassword = this.onTextboxChangeSignUpPassword.bind(this);
 
-    this.onTextboxChangeSignUpFirstName = this.onTextboxChangeSignUpFirstName.bind(this);
-    this.onTextboxChangeSignUpLastName = this.onTextboxChangeSignUpLastName.bind(this);
+    // this.onTextboxChangeSignUpFirstName = this.onTextboxChangeSignUpFirstName.bind(this);
+    // this.onTextboxChangeSignUpLastName = this.onTextboxChangeSignUpLastName.bind(this);
     
     this.onSignIn = this.onSignIn.bind(this);
-    this.onSignUp = this.onSignUp.bind(this);
-    this.logout = this.logout.bind(this);
+    // this.onSignUp = this.onSignUp.bind(this);
+    // this.logout = this.logout.bind(this);
   }
 
   componentDidMount() {
@@ -72,77 +75,77 @@ class Home extends Component {
     });
   }
 
-  onTextboxChangeSignUpEmail(event) {
-    this.setState({
-      signUpEmail: event.target.value,
-    });
-  }
+  // onTextboxChangeSignUpEmail(event) {
+  //   this.setState({
+  //     signUpEmail: event.target.value,
+  //   });
+  // }
 
-  onTextboxChangeSignUpPassword(event) {
-    this.setState({
-      signUpPassword: event.target.value,
-    });
-  }
+  // onTextboxChangeSignUpPassword(event) {
+  //   this.setState({
+  //     signUpPassword: event.target.value,
+  //   });
+  // }
 
-  onTextboxChangeSignUpFirstName(event) {
-    this.setState({
-      signUpFirstName: event.target.value,
-    });
-  }
+  // onTextboxChangeSignUpFirstName(event) {
+  //   this.setState({
+  //     signUpFirstName: event.target.value,
+  //   });
+  // }
 
-  onTextboxChangeSignUpLastName(event) {
-    this.setState({
-      SignUpLastName: event.target.value,
-    });
-  }
+  // onTextboxChangeSignUpLastName(event) {
+  //   this.setState({
+  //     SignUpLastName: event.target.value,
+  //   });
+  // }
 
-  onSignUp() {
-    // Grab state
-    const {
-      signUpFirstName,
-      SignUpLastName,
-      signUpEmail,
-      signUpPassword,
-    } = this.state;
+  // onSignUp() {
+  //   // Grab state
+  //   const {
+  //     signUpFirstName,
+  //     SignUpLastName,
+  //     signUpEmail,
+  //     signUpPassword,
+  //   } = this.state;
 
-    this.setState({
-      isLoading: true,
-    });
+  //   this.setState({
+  //     isLoading: true,
+  //   });
 
-    // Post request to backend
-    fetch('/api/account/signup', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        firstName: signUpFirstName,
-        lastName: SignUpLastName,
-        email: signUpEmail,
-        password: signUpPassword,
-      }),
-    }).then(res => res.json())
-      .then(json => {
-        console.log('json', json);
-        if (json.success) {
-           //Redirect to auction list on success
-            window.location.pathname = '/auction';
-          // this.setState({
-          //   signUpError: json.message,
-          //   isLoading: false,
-          //   signUpFirstName: '',
-          //   SignUpLastName: '',
-          //   signUpEmail: '',
-          //   signUpPassword: '',
-          // })
-        } else {
-          this.setState({
-            signUpError: json.message,
-            isLoading: false,
-          });
-        }
-      });
-  }
+  //   // Post request to backend
+  //   fetch('/api/account/signup', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify({
+  //       firstName: signUpFirstName,
+  //       lastName: SignUpLastName,
+  //       email: signUpEmail,
+  //       password: signUpPassword,
+  //     }),
+  //   }).then(res => res.json())
+  //     .then(json => {
+  //       console.log('json', json);
+  //       if (json.success) {
+  //          //Redirect to auction list on success
+  //           window.location.pathname = '/auction';
+  //         // this.setState({
+  //         //   signUpError: json.message,
+  //         //   isLoading: false,
+  //         //   signUpFirstName: '',
+  //         //   SignUpLastName: '',
+  //         //   signUpEmail: '',
+  //         //   signUpPassword: '',
+  //         // })
+  //       } else {
+  //         this.setState({
+  //           signUpError: json.message,
+  //           isLoading: false,
+  //         });
+  //       }
+  //     });
+  // }
 
   onSignIn() {
     // Grab state
@@ -188,34 +191,34 @@ class Home extends Component {
       });
   }
 
-  logout() {
-    this.setState({
-      isLoading: true,
-    });
-    const obj = getFromStorage('the_main_app');
-    if (obj && obj.token) {
-      const { token } = obj;
-      // Verify token
-      fetch('/api/account/logout?token=' + token)
-        .then(res => res.json())
-        .then(json => {
-          if (json.success) {
-            this.setState({
-              token: '',
-              isLoading: false
-            });
-          } else {
-            this.setState({
-              isLoading: false,
-            });
-          }
-        });
-    } else {
-      this.setState({
-        isLoading: false,
-      });
-    }
-  }
+  // logout() {
+  //   this.setState({
+  //     isLoading: true,
+  //   });
+  //   const obj = getFromStorage('the_main_app');
+  //   if (obj && obj.token) {
+  //     const { token } = obj;
+  //     // Verify token
+  //     fetch('/api/account/logout?token=' + token)
+  //       .then(res => res.json())
+  //       .then(json => {
+  //         if (json.success) {
+  //           this.setState({
+  //             token: '',
+  //             isLoading: false
+  //           });
+  //         } else {
+  //           this.setState({
+  //             isLoading: false,
+  //           });
+  //         }
+  //       });
+  //   } else {
+  //     this.setState({
+  //       isLoading: false,
+  //     });
+  //   }
+  // }
 
   render() {
     const {
@@ -224,11 +227,11 @@ class Home extends Component {
       signInError,
       signInEmail,
       signInPassword,
-      signUpFirstName,
-      SignUpLastName,
-      signUpEmail,
-      signUpPassword,
-      signUpError,
+      // signUpFirstName,
+      // SignUpLastName,
+      // signUpEmail,
+      // signUpPassword,
+      // signUpError,
     } = this.state;
 
     if (isLoading) {
@@ -261,7 +264,7 @@ class Home extends Component {
             <br />
             <button onClick={this.onSignIn}>Sign In</button>
           </div>
-          <br />
+          {/* <br />
           <br />
           <div>
             {
@@ -295,19 +298,19 @@ class Home extends Component {
               onChange={this.onTextboxChangeSignUpPassword}
             /><br />
             <button onClick={this.onSignUp}>Sign Up</button>
-          </div>
+          </div> */}
 
         </div>
       );
     }
 
-    return (
-      <div>
-        <p>Press the button below to confirm your logout</p>
-        <button onClick={this.logout}>Logout</button>
-      </div>
-    );
+    // return (
+    //   <div>
+    //     <p>Press the button below to confirm your logout</p>
+    //     <button onClick={this.logout}>Logout</button>
+    //   </div>
+    // );
   }
 }
 
-export default Home;
+export default SignIn;
