@@ -1,10 +1,9 @@
 const User = require('../../models/User');
-const UserSession = require('../../models/UserSession');
-
-module.exports = (app) => {
+const UserSession = require('../../models/UserSessions');
+const accountsRouter = require("express").Router();
 
   // Sign Up
-  app.post('/api/account/signup', (req, res, next) => {
+  accountsRouter.post('/signup', (req, res, next) => {
     const {
       body
     } = req;
@@ -89,7 +88,7 @@ module.exports = (app) => {
 
   });
 
-  app.post('/api/account/signin', (req, res, next) => {
+  accountsRouter.post('/signin', (req, res, next) => {
     const {
       body
     } = req;
@@ -158,7 +157,7 @@ module.exports = (app) => {
     });
   });
 
-  app.get('/api/account/verify', (req, res, next) => {
+  accountsRouter.get('/verify', (req, res, next) => {
     //Get the token
     const {
       query
@@ -193,7 +192,7 @@ module.exports = (app) => {
     });
   });
 
-  app.get('/api/account/logout', (req, res, next) => {
+  accountsRouter.get('/logout', (req, res, next) => {
     //Get the token
     const {
       query
@@ -225,5 +224,4 @@ module.exports = (app) => {
     });
   });
 
-
-};
+  module.exports = accountsRouter;
