@@ -6,6 +6,7 @@ import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
+import LogOutPage from "./pages/LogOutPage"
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Nav />
         <Switch>
           <Route exact path="/" component={HomePage} />
+          <Route exact path="/logout" component={LogOutPage} />
           <Route exact path="/auction" component={AuctionList} />
           <Route exact path="/auction/:id" component={Detail} />
           <Route component={NoMatch} />
