@@ -128,9 +128,13 @@ class Home extends Component {
           this.setState({
             signUpError: json.message,
             isLoading: false,
+            signUpFirstName: '',
+            SignUpLastName: '',
             signUpEmail: '',
             signUpPassword: '',
-          });
+          })
+          // .then(res => res.redirect("/auction"));
+          //Add route to aunctionList here*************************************
         } else {
           this.setState({
             signUpError: json.message,
@@ -173,6 +177,7 @@ class Home extends Component {
             signInEmail: '',
             token: json.token,
           });
+          //Add route to auctionList here***********************************
         } else {
           this.setState({
             signInError: json.message,
