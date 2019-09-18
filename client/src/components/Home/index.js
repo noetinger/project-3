@@ -125,16 +125,16 @@ class Home extends Component {
       .then(json => {
         console.log('json', json);
         if (json.success) {
-          this.setState({
-            signUpError: json.message,
-            isLoading: false,
-            signUpFirstName: '',
-            SignUpLastName: '',
-            signUpEmail: '',
-            signUpPassword: '',
-          })
-          // .then(res => res.redirect("/auction"));
-          //Add route to aunctionList here*************************************
+           //Redirect to auction list on success
+            window.location.pathname = '/auction';
+          // this.setState({
+          //   signUpError: json.message,
+          //   isLoading: false,
+          //   signUpFirstName: '',
+          //   SignUpLastName: '',
+          //   signUpEmail: '',
+          //   signUpPassword: '',
+          // })
         } else {
           this.setState({
             signUpError: json.message,
@@ -170,14 +170,15 @@ class Home extends Component {
         console.log('json', json);
         if (json.success) {
           setInStorage('the_main_app', { token: json.token });
-          this.setState({
-            signInError: json.message,
-            isLoading: false,
-            signInPassword: '',
-            signInEmail: '',
-            token: json.token,
-          });
-          //Add route to auctionList here***********************************
+          //Redirect to auction list on success
+          window.location.pathname = '/auction';
+          // this.setState({
+          //   signInError: json.message,
+          //   isLoading: false,
+          //   signInPassword: '',
+          //   signInEmail: '',
+          //   token: json.token,
+          // });
         } else {
           this.setState({
             signInError: json.message,
@@ -302,7 +303,7 @@ class Home extends Component {
 
     return (
       <div>
-        <p>Account</p>
+        <p>Press the button below to confirm your logout</p>
         <button onClick={this.logout}>Logout</button>
       </div>
     );
