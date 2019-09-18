@@ -138,9 +138,9 @@ const accountsRouter = require("express").Router();
         });
       }
       //Otherwise correct user
-      const UserSession = new UserSession();
-      UserSession.userId = user._id;
-      UserSession.save((err, doc) => {
+      const userSession = new UserSession();
+      userSession.userId = user._id;
+      userSession.save((err, doc) => {
         if (err) {
           return res.send({
             success: false,
