@@ -53,17 +53,19 @@ accountsRouter.post('/signup', (req, res, next) => {
     email: email,
   }, (err, previousUsers) => {
     if (err) {
+      console.log("Account Router Error on SignUp Method");
       res.send({
         success: false,
         message: 'Error: Server error'
       });
     } else if (previousUsers.length > 0) {
-      console.log(res);
+      console.log("Account Already Exists - SignUp Method");
       res.send({
         success: false,
         message: 'Error: Account already exists'
       });
     } else {
+      console.log("Save New User - SignUp Method");
       //Save the new user
       const newUser = new User();
 
@@ -125,7 +127,7 @@ accountsRouter.post('/signin', (req, res, next) => {
     if (users.length != 1) {
       return res.send({
         success: false,
-        message: 'Error: Invalid'
+        message: 'Error: Invalid Credentials'
       });
     }
 
@@ -133,23 +135,24 @@ accountsRouter.post('/signin', (req, res, next) => {
     if (!user.validPassword(password)) {
       return res.send({
         success: false,
-        message: 'Error: Invalid'
+        message: 'Error: Invalid Password'
       });
     }
     //Otherwise correct user
+    console.log("Creating New User")
     const userSession = new UserSession();
     userSession.userId = user._id;
     userSession.save((err, doc) => {
       if (err) {
         return res.send({
           success: false,
-          message: 'Error: Server Error'
+          message: 'Error: Server Error on Signin'
         });
       }
 
       return res.send({
         success: true,
-        message: 'Valid sign in',
+        message: 'Valid Sign In',
         token: doc._id
       })
     });
@@ -166,7 +169,7 @@ accountsRouter.get('/verify', (req, res, next) => {
   } = query;
 
   //Verify the token is one of a kind and not deleted
-
+  console.log("Verify Token - Login Method");
   UserSession.find({
     _id: token,
     isDeleted: false
@@ -201,8 +204,7 @@ accountsRouter.get('/logout', (req, res, next) => {
     token
   } = query;
 
-  //Verify the token is one of a kind and not deleted
-
+  //Find token and delete to logout
   UserSession.findOneAndUpdate({
     _id: token,
     isDeleted: false
