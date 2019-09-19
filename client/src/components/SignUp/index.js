@@ -124,8 +124,9 @@ class Home extends Component {
         password: signUpPassword,
       }),
     }).then(res => res.json())
+    // console.log("***********")
       .then(json => {
-        console.log('json', json);
+        console.log(json);
         if (json.success) {
            //Redirect to auction list on success
             window.location.pathname = '/auction';
