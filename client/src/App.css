@@ -1,0 +1,21 @@
+body {
+    font-family: "Roboto Condensed";
+}
+
+h1{
+    font-family: "Roboto Condensed";
+}
+
+p {
+    font-family: "Roboto Condensed";
+}
+
+.item-detail-header {
+    text-align: center;
+}
+
+.noaccount {
+    text-align: center;
+}
+
+

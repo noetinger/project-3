@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import 'whatwg-fetch';
+import "./style.css"
 
 import {
   getFromStorage,
@@ -240,7 +241,7 @@ class Home extends Component {
 
     if (!token) {
       return (
-        <div>
+        <div className="signup">
           <div>
             {/* {
               (signInError) ? (
@@ -272,31 +273,35 @@ class Home extends Component {
                 <p>{signUpError}</p>
               ) : (null)
             }
-            <p>Sign Up</p>
+            <p>Don't have an account? Sign up!</p>
             <input
               type="string"
               placeholder="First Name"
               value={signUpFirstName}
               onChange={this.onTextboxChangeSignUpFirstName}
             /><br />
+                        <br />
             <input
               type="string"
               placeholder="Last Name"
               value={SignUpLastName}
               onChange={this.onTextboxChangeSignUpLastName}
             /><br />
+                        <br />
             <input
               type="email"
               placeholder="Email"
               value={signUpEmail}
               onChange={this.onTextboxChangeSignUpEmail}
             /><br />
+                        <br />
             <input
               type="password"
               placeholder="Password"
               value={signUpPassword}
               onChange={this.onTextboxChangeSignUpPassword}
             /><br />
+                        <br />
             <button onClick={this.onSignUp}>Sign Up</button>
           </div>
 

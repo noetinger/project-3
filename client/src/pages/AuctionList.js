@@ -60,6 +60,8 @@ class AuctionItems extends Component {
             <Jumbotron>
               <h1>Auction Items</h1>
             </Jumbotron>
+            </ Col>
+        </ Row>
             {this.state.items.length ? (
               <List>
                 {this.state.items.map(auctionitem => (
@@ -75,12 +77,10 @@ class AuctionItems extends Component {
                     </Link>
                   </ListItem>
                 ))}
-              </List>
+              </ List>
             ) : (
               <h3>No Results to Display</h3>
             )}
-          </Col>
-        </Row>
       </Container>
     );
   }
