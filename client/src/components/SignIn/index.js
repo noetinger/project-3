@@ -1,6 +1,7 @@
 //Sign In Component
 import React, { Component } from 'react';
 import 'whatwg-fetch';
+import "./style.css";
 
 import {
   getFromStorage,
@@ -240,20 +241,21 @@ class SignIn extends Component {
 
     if (!token) {
       return (
-        <div>
+        <div className="signin">
           <div>
             {
               (signInError) ? (
                 <p>{signInError}</p>
               ) : (null)
             }
-            <p>Sign In</p>
-            <input
+            <p>Have an account already? Sign in!</p>
+            <input className="inputfields"
               type="email"
               placeholder="Email"
               value={signInEmail}
               onChange={this.onTextboxChangeSignInEmail}
             />
+            <br />
             <br />
             <input
               type="password"
@@ -262,7 +264,8 @@ class SignIn extends Component {
               onChange={this.onTextboxChangeSignInPassword}
             />
             <br />
-            <button onClick={this.onSignIn}>Sign In</button>
+            <br />
+            <button className="signinbtn" onClick={this.onSignIn}>Sign In</button>
           </div>
           {/* <br />
           <br />
@@ -299,7 +302,8 @@ class SignIn extends Component {
             /><br />
             <button onClick={this.onSignUp}>Sign Up</button>
           </div> */}
-
+          <br></br>
+       <p className="noaccount">Don't have an account? <a href="">Click Here</a> to sign up!</p>
         </div>
       );
     }
