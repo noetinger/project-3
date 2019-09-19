@@ -1,16 +1,21 @@
 import React from "react";
 import "./style.css";
+import { Col, Row, Container } from "..//Grid";
+
 
 // This file exports both the List and ListItem components
 
 export function List({ children }) {
   return (
-    <div className="list-overflow-container">
-      <ul className="list-group">{children}</ul>
-    </div>
+    <div className= "auction-items"> {children} </div>
   );
 }
 
 export function ListItem({ children }) {
-  return <li className="list-group-item">{children}</li>;
+  return (
+  <Col size="md-4"> <div className="card img-container hover">
+  {children}
+  </div>
+  </Col>
+  )
 }

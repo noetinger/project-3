@@ -1,4 +1,21 @@
-.bid-btn {
+.signin {
+    background: #fff;
+    border-radius: 2px;
+    border-width: 2px;
+    border: 2px;
+    overflow: hidden;
+    border-style: solid;
+    border-color: black;
+    margin: 10px;
+    padding-left: 30px;
+    padding: 10px;
+}
+
+.inputfields{
+
+}
+
+.signinbtn {
     overflow: unset;
     background-image: none;
     background: #8ec63f;
@@ -9,7 +26,7 @@
     font-family: 'Roboto Condensed';
     font-weight: 700;
     padding: 5px 23px;
-    font-size: 1.5rem;
+    font-size: 1rem;
     box-sizing: border-box;
     vertical-align: middle;
     text-transform: uppercase;

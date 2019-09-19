@@ -1,12 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import AuctionList from "./pages/AuctionList";
 import Detail from "./pages/Detail";
+import AuctionList from "./pages/AuctionList";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
-import LogOutPage from "./pages/LogOutPage"
+import LogOutPage from "./pages/LogOutPage";
+import "./App.css";
+
 
 function App() {
   return (

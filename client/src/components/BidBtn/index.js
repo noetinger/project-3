@@ -5,8 +5,8 @@ import "./style.css";
 // That way we don't have to define them all individually
 function BidBtn(props) {
   return (
-    <span className="bid-btn" {...props} role="button" tabIndex="0">
-      ✗
+    <span className="bid-btn animated fadeIn" {...props} role="button" tabIndex="0">
+      Bid Now
     </span>
   );
 }
