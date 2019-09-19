@@ -303,7 +303,7 @@ class SignIn extends Component {
             <button onClick={this.onSignUp}>Sign Up</button>
           </div> */}
           <br></br>
-       <p className="noaccount">Don't have an account? <a href="">Click Here</a> to sign up!</p>
+       <p className="noaccount">Don't have an account? <a href="/SignUp">Click Here</a> to sign up!</p>
         </div>
       );
     }
