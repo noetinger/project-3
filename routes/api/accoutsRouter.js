@@ -192,6 +192,7 @@ accountsRouter.get('/verify', (req, res, next) => {
 });
 
 accountsRouter.get('/logout', (req, res, next) => {
+  console.log("Logout Router Hit");
   //Get the token
   const {
     query

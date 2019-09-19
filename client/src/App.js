@@ -7,6 +7,7 @@ import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
 import LogOutPage from "./pages/LogOutPage";
+import SignUpPage from "./pages/SignUpPage";
 import "./App.css";
 
 
@@ -17,6 +18,7 @@ function App() {
         <Nav />
         <Switch>
           <Route exact path="/" component={HomePage} />
+          <Route exact path="/SignUp" component={SignUpPage} />
           <Route exact path="/logout" component={LogOutPage} />
           <Route exact path="/auction" component={AuctionList} />
           <Route exact path="/auction/:id" component={Detail} />
