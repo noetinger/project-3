@@ -64,6 +64,7 @@ class AuctionItems extends Component {
         </ Row>
             {this.state.items.length ? (
               <List>
+                <div className="row">
                 {this.state.items.map(auctionitem => (
                   <ListItem key={auctionitem._id}>
                     <Link to={"/auction/" + auctionitem._id}>
@@ -77,6 +78,7 @@ class AuctionItems extends Component {
                     </Link>
                   </ListItem>
                 ))}
+                </div>
               </ List>
             ) : (
               <h3>No Results to Display</h3>
