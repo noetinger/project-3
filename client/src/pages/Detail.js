@@ -39,8 +39,8 @@ class Detail extends Component {
           </Col>
           <Col size="md-6">
               <p>{this.state.item.description}</p>
-              <p> Current Bid: ${this.state.item.currentBid}</p>
-              <p>Current Bidder: {this.state.item.currentBidder}</p>
+              <p> <strong>Current Bid:</strong> ${this.state.item.currentBid}</p>
+              <p><strong>Current Bidder:</strong> {this.state.item.currentBidder}</p>
               <BidBtn />
           </Col>
         </Row>
