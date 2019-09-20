@@ -126,10 +126,10 @@ class Home extends Component {
       }),
     }).then(res => res.json())
       .then(json => {
-        console.log('json', json);
+        console.log(json);
         if (json.success) {
            //Redirect to auction list on success
-            window.location.pathname = '/auction';
+            window.location.pathname = '/';
           // this.setState({
           //   signUpError: json.message,
           //   isLoading: false,
@@ -303,7 +303,8 @@ class Home extends Component {
                         <br />
             <button onClick={this.onSignUp}>Sign Up</button>
           </div>
-
+          <br></br>
+        <p className="noaccount"><a href="/">Click Here</a> to go back to sign in!</p>
         </div>
       );
     }

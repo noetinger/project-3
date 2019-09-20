@@ -192,6 +192,7 @@ class LogOut extends Component {
   // }
 
   logout() {
+    console.log("Logout Button Pressed")
     this.setState({
       isLoading: true,
     });
