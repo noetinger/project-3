@@ -1,7 +1,7 @@
 //LogOut Component
 import React, { Component } from 'react';
 import 'whatwg-fetch';
-
+import "./style.css";
 import {
   getFromStorage,
   setInStorage,
@@ -237,14 +237,14 @@ class LogOut extends Component {
     } = this.state;
 
     if (isLoading) {
-      return (<div><p>Loading...</p></div>);
+      return (<div id= "load"><p>Loading...</p></div>);
     }
 
     return (
       <div>
-        <p>Press the button below to confirm your logout</p>
-        <button onClick={this.logout}>Logout</button>
-      </div>
+        <p id="confirmText">Press the button below to confirm your logout</p>
+        <button id="logOutBtn" onClick={this.logout}>Logout</button>
+      </div> 
     );
   }
 }
