@@ -3,6 +3,13 @@
   border-radius: 2px;
   box-shadow: 0 3px 6px #999, 0 3px 6px #999;
   overflow: hidden;
+  font-family: "Roboto Condensed";
+}
+
+.click-item:hover{
+  box-shadow: 5px 5px 15px; 
+  transform: scale(1.1);
+  cursor: pointer;
 }
 
 img {

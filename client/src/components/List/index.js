@@ -15,7 +15,7 @@ export function List({ children }) {
 export function ListItem({ children }) {
   return (
   <Col size="md-4"> 
-  <div className="card img-container hover">
+  <div className="card text-center img-container click-item mb-4">
   {children}
   </div>
   </Col>
