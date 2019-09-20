@@ -194,6 +194,7 @@ accountsRouter.get('/verify', (req, res, next) => {
   });
 });
 
+//Logout Method *******************************************
 accountsRouter.get('/logout', (req, res, next) => {
   console.log("Logout Router Hit");
   //Get the token
@@ -203,6 +204,7 @@ accountsRouter.get('/logout', (req, res, next) => {
   const {
     token
   } = query;
+  console.log(token);
 
   //Find token and delete to logout
   UserSession.findOneAndUpdate({
