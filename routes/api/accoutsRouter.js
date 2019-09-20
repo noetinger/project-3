@@ -139,7 +139,7 @@ accountsRouter.post('/signin', (req, res, next) => {
       });
     }
     //Otherwise correct user
-    console.log("Creating New User")
+    console.log("Signing In User")
     const userSession = new UserSession();
     userSession.userId = user._id;
     userSession.save((err, doc) => {
