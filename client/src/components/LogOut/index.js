@@ -208,6 +208,8 @@ class LogOut extends Component {
               token: '',
               isLoading: false
             });
+            //Delete Token from Local Storage
+            localStorage.removeItem("the_main_app");
             //Go back to HomePage
             window.location.pathname = '/';
           } else {
