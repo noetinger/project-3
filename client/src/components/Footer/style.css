@@ -1,13 +1,25 @@
 /* Styles for Footer */
-.text-light{
-    margin: 55px !important;
-    
- };
+.dev-name{
+  color:white;
+};
  div{
      width:100% !important;
  }
- @media screen and (max-width: 600px) {
-     .text-light {
-       color: red !important;
+ /*@media screen and (min-width: 601px) {
+     .dev-name {
+       display: none;
      }
- }
+ }*/
+
+.dev-danger{
+  color: orange
+}
+
+ @media screen and (max-width: 600px) {
+    #footer {
+      display: block;
+
+    }
+}
+
+
