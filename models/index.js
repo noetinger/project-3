@@ -1,3 +1,3 @@
 module.exports = {
-  AuctionItem: require('./auctionitem')
+  AuctionItem: require("./item")
 };

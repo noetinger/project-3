@@ -1,0 +1,36 @@
+.signin {
+    background: #fff;
+    border-radius: 2px;
+    border-width: 2px;
+    border: 2px;
+    overflow: hidden;
+    border-style: solid;
+    border-color: black;
+    margin: 10px;
+    padding-left: 30px;
+    padding: 10px;
+}
+
+.inputfields{
+
+}
+
+.signinbtn {
+    overflow: unset;
+    background-image: none;
+    background: #8ec63f;
+    border: 2px solid #8ec63f;
+    color: #232a2d;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Roboto Condensed';
+    font-weight: 700;
+    padding: 5px 23px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    vertical-align: middle;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    position: relative;
+    z-index: 0;
+}

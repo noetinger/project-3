@@ -1,0 +1,19 @@
+.bid-btn {
+    overflow: unset;
+    background-image: none;
+    background: #8ec63f;
+    border: 2px solid #8ec63f;
+    color: #232a2d;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Roboto Condensed';
+    font-weight: 700;
+    padding: 5px 23px;
+    font-size: 1.5rem;
+    box-sizing: border-box;
+    vertical-align: middle;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    position: relative;
+    z-index: 0;
+}
