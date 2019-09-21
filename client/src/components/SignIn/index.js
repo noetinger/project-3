@@ -26,9 +26,8 @@ class SignIn extends Component {
   }
 
   componentDidMount() {
-    const obj = getFromStorage('the_main_app');
-    if (obj && obj.token) {
-      const { token } = obj;
+    const token = getFromStorage('token');
+    if (token !== '') {
       // Verify token
       fetch('/api/account/verify?token=' + token)
         .then(res => res.json())
@@ -88,7 +87,7 @@ class SignIn extends Component {
       .then(json => {
         console.log('json', json);
         if (json.success) {
-          setInStorage('the_main_app', { token: json.token });
+          setInStorage('token', json.token);
           //Redirect to auction list on success
           window.location.pathname = '/auction';
         } else {
