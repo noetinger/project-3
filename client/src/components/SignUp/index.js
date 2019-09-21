@@ -15,26 +15,17 @@ class Home extends Component {
       isLoading: true,
       token: '',
       signUpError: '',
-    //   signInError: '',
-    //   signInEmail: '',
-    //   signInPassword: '',
       signUpEmail: '',
       signUpPassword: '',
       signUpFirstName: '',
       SignUpLastName: '',
     };
 
-    // this.onTextboxChangeSignInEmail = this.onTextboxChangeSignInEmail.bind(this);
-    // this.onTextboxChangeSignInPassword = this.onTextboxChangeSignInPassword.bind(this);
     this.onTextboxChangeSignUpEmail = this.onTextboxChangeSignUpEmail.bind(this);
     this.onTextboxChangeSignUpPassword = this.onTextboxChangeSignUpPassword.bind(this);
-
     this.onTextboxChangeSignUpFirstName = this.onTextboxChangeSignUpFirstName.bind(this);
     this.onTextboxChangeSignUpLastName = this.onTextboxChangeSignUpLastName.bind(this);
-    
-    // this.onSignIn = this.onSignIn.bind(this);
     this.onSignUp = this.onSignUp.bind(this);
-    // this.logout = this.logout.bind(this);
   }
 
   componentDidMount() {
@@ -62,18 +53,6 @@ class Home extends Component {
       });
     }
   }
-
-//   onTextboxChangeSignInEmail(event) {
-//     this.setState({
-//       signInEmail: event.target.value,
-//     });
-//   }
-
-//   onTextboxChangeSignInPassword(event) {
-//     this.setState({
-//       signInPassword: event.target.value,
-//     });
-//   }
 
   onTextboxChangeSignUpEmail(event) {
     this.setState({
@@ -130,14 +109,7 @@ class Home extends Component {
         if (json.success) {
            //Redirect to auction list on success
             window.location.pathname = '/';
-          // this.setState({
-          //   signUpError: json.message,
-          //   isLoading: false,
-          //   signUpFirstName: '',
-          //   SignUpLastName: '',
-          //   signUpEmail: '',
-          //   signUpPassword: '',
-          // })
+            window.alert("Account Created - Please Sign In!")
         } else {
           this.setState({
             signUpError: json.message,
@@ -147,86 +119,10 @@ class Home extends Component {
       });
   }
 
-//   onSignIn() {
-//     // Grab state
-//     const {
-//       signInEmail,
-//       signInPassword,
-//     } = this.state;
-    
-//     this.setState({
-//       isLoading: true,
-//     });
-
-//     // Post request to backend
-//     fetch('/api/account/signin', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json'
-//       },
-//       body: JSON.stringify({
-//         email: signInEmail,
-//         password: signInPassword,
-//       }),
-//     }).then(res => res.json())
-//       .then(json => {
-//         console.log('json', json);
-//         if (json.success) {
-//           setInStorage('the_main_app', { token: json.token });
-//           //Redirect to auction list on success
-//           window.location.pathname = '/auction';
-//           // this.setState({
-//           //   signInError: json.message,
-//           //   isLoading: false,
-//           //   signInPassword: '',
-//           //   signInEmail: '',
-//           //   token: json.token,
-//           // });
-//         } else {
-//           this.setState({
-//             signInError: json.message,
-//             isLoading: false,
-//           });
-//         }
-//       });
-//   }
-
-//   logout() {
-//     this.setState({
-//       isLoading: true,
-//     });
-//     const obj = getFromStorage('the_main_app');
-//     if (obj && obj.token) {
-//       const { token } = obj;
-//       // Verify token
-//       fetch('/api/account/logout?token=' + token)
-//         .then(res => res.json())
-//         .then(json => {
-//           if (json.success) {
-//             this.setState({
-//               token: '',
-//               isLoading: false
-//             });
-//           } else {
-//             this.setState({
-//               isLoading: false,
-//             });
-//           }
-//         });
-//     } else {
-//       this.setState({
-//         isLoading: false,
-//       });
-//     }
-//   }
-
   render() {
     const {
       isLoading,
       token,
-    //   signInError,
-    //   signInEmail,
-    //   signInPassword,
       signUpFirstName,
       SignUpLastName,
       signUpEmail,
@@ -242,31 +138,6 @@ class Home extends Component {
       return (
         <div className="signup">
           <div>
-            {/* {
-              (signInError) ? (
-                <p>{signInError}</p>
-              ) : (null)
-            } */}
-            {/* <p>Sign In</p>
-            <input
-              type="email"
-              placeholder="Email"
-              value={signInEmail}
-              onChange={this.onTextboxChangeSignInEmail}
-            />
-            <br />
-            <input
-              type="password"
-              placeholder="Password"
-              value={signInPassword}
-              onChange={this.onTextboxChangeSignInPassword}
-            />
-            <br />
-            <button onClick={this.onSignIn}>Sign In</button>
-          </div>
-          <br />
-          <br />
-          <div> */}
             {
               (signUpError) ? (
                 <p>{signUpError}</p>
@@ -308,13 +179,6 @@ class Home extends Component {
         </div>
       );
     }
-
-    // return (
-    //   <div>
-    //     <p>Press the button below to confirm your logout</p>
-    //     <button onClick={this.logout}>Logout</button>
-    //   </div>
-    // );
   }
 }
 

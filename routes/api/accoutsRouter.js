@@ -2,7 +2,7 @@ const User = require('../../models/User');
 const UserSession = require('../../models/UserSessions');
 const accountsRouter = require("express").Router();
 
-// Sign Up
+//SignUp Route ******************************************************************
 accountsRouter.post('/signup', (req, res, next) => {
   const {
     body
@@ -89,6 +89,7 @@ accountsRouter.post('/signup', (req, res, next) => {
   });
 });
 
+//SignIn Route ******************************************************************
 accountsRouter.post('/signin', (req, res, next) => {
   const {
     body
@@ -159,6 +160,7 @@ accountsRouter.post('/signin', (req, res, next) => {
   });
 });
 
+//Verify Route ******************************************************************
 accountsRouter.get('/verify', (req, res, next) => {
   //Get the token
   const {
@@ -194,7 +196,7 @@ accountsRouter.get('/verify', (req, res, next) => {
   });
 });
 
-//Logout Method *******************************************
+//Logout Route ******************************************************************
 accountsRouter.get('/logout', (req, res, next) => {
   console.log("Logout Router Hit");
   //Get the token
