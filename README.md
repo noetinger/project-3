@@ -4,6 +4,8 @@
 
 The Positec Auction App is created for Positec Group, a tool manufacturing company. This app will allow the company to post some of their tools and equipment for an internal employee auction. Employees will have the opportunity to create an account or sign in, view a list of items availale for auction, and see which items they have bid on.
 
+Check out a live version of the app here: [Positec Auction App](https://evening-sands-91672.herokuapp.com/)
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
