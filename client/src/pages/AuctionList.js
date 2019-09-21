@@ -1,3 +1,4 @@
+//Page for all the auction list items available to bid on.
 import React, { Component } from "react";
 import BidBtn from "../components/BidBtn";
 import Jumbotron from "../components/Jumbotron";
@@ -64,19 +65,21 @@ class AuctionItems extends Component {
         </ Row>
             {this.state.items.length ? (
               <List>
+                <div className="row">
                 {this.state.items.map(auctionitem => (
                   <ListItem key={auctionitem._id}>
                     <Link to={"/auction/" + auctionitem._id}>
                       <strong>
-                        <p>{auctionitem.name} {auctionitem.description}</p>
+                        <h4>{auctionitem.name} {auctionitem.description}</h4>
                         <p><img src= {auctionitem.image}/></p>
-                        <p>Current Bid: ${auctionitem.currentBid}</p>
-                        <p>Current Bidder: {auctionitem.currentBidder}</p>
-                        <p>Retail Value: ${auctionitem.retailValue}</p>
+                        <h5>Current Bid: ${auctionitem.currentBid}</h5>
+                        <h5>Current Bidder: {auctionitem.currentBidder}</h5>
+                        <h5>Retail Value: ${auctionitem.retailValue}</h5>
                       </strong>
                     </Link>
                   </ListItem>
                 ))}
+                </div>
               </ List>
             ) : (
               <h3>No Results to Display</h3>
