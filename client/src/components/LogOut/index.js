@@ -20,9 +20,8 @@ class LogOut extends Component {
   }
 
   componentDidMount() {
-    const obj = getFromStorage('the_main_app');
-    if (obj && obj.token) {
-      const { token } = obj;
+    const token = getFromStorage('token');
+    if (token !== '') {
       // Verify token
       fetch('/api/account/verify?token=' + token)
         .then(res => res.json())
@@ -50,9 +49,12 @@ class LogOut extends Component {
     this.setState({
       isLoading: true,
     });
-    const obj = getFromStorage('the_main_app');
-    if (obj && obj.token) {
-      const { token } = obj;
+    // const obj = getFromStorage('the_main_app');
+    // if (obj && obj.token) {
+    //   const { token } = obj;
+    const token = getFromStorage('token');
+    console.log(token)
+    if (token !== '') {
       // Verify token
       fetch('/api/account/logout?token=' + token)
         .then(res => res.json())
@@ -63,7 +65,7 @@ class LogOut extends Component {
               isLoading: false
             });
             //Delete Token from Local Storage
-            localStorage.removeItem("the_main_app");
+            localStorage.removeItem('token');
             //Go back to HomePage
             window.location.pathname = '/';
           } else {

@@ -5,7 +5,7 @@ export function getFromStorage(key){
     try {
         const valueStr = localStorage.getItem(key);
         if (valueStr){
-            return JSON.parse(valueStr);
+            return valueStr;
         } 
         return null;
     } catch (err){
@@ -13,13 +13,13 @@ export function getFromStorage(key){
     }
 }
 
-export function setInStorage(key, obj){
+export function setInStorage(key, val){
     if (!key){
         console.error('Error: Key is missing');
     }
 
     try {
-        localStorage.setItem(key, JSON.stringify(obj))
+        localStorage.setItem(key, val)
     } catch (err){
         console.log(err);
     }
