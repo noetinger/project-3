@@ -150,11 +150,11 @@ accountsRouter.post('/signin', (req, res, next) => {
           message: 'Error: Server Error on Signin'
         });
       }
-
+      // access user ID token.split('.')[1];********************************
       return res.send({
         success: true,
         message: 'Valid Sign In',
-        token: doc._id
+        token: `${doc._id}.${user._id}`
       })
     });
   });
@@ -201,16 +201,15 @@ accountsRouter.get('/logout', (req, res, next) => {
   console.log("Logout Router Hit");
   //Get the token
   const {
-    query
-  } = req;
-  const {
     token
-  } = query;
+  } = req.query;
   console.log(token);
+  // const token = full_token.split('.')[0];
+  // console.log(token);
 
   //Find token and delete to logout
   UserSession.findOneAndUpdate({
-    _id: token,
+    _id: token.split('.')[0],
     isDeleted: false
   }, {
     $set: {
