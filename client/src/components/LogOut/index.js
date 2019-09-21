@@ -242,7 +242,7 @@ class LogOut extends Component {
     }
 
     return (
-      <div>
+      <div id= "box">
         <p id="confirmText">Press the button below to confirm your logout</p>
         <button id="logOutBtn" onClick={this.logout}>Logout</button>
       </div> 
