@@ -27,6 +27,14 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+
+  getCurrentBidder: function(req, res) {
+    db.AuctionItem
+      .findById(req.params.id)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+
   remove: function(req, res) {
     db.AuctionItem
       .findById({ _id: req.params.id })
@@ -34,4 +42,6 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
+
+
 };

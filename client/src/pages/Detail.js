@@ -8,45 +8,45 @@ class Detail extends Component {
   state = {
     item: {},
     currentBidder: "",
-    currentBid: ""
+    currentBid: "",
+    token: ""
   };
-  // When this component mounts, grab the book with the _id of this.props.match.params.id
-  // e.g. localhost:3000/books/599dcb67f0f16317844583fc
+
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
+  // When this component mounts, grab the item with the _id of this.props.match.params.id
+  // e.g. localhost:3000/auctionitems/599dcb67f0f16317844583fc
   componentDidMount() {
     API.getItem(this.props.match.params.id)
       .then(res => this.setState({ item: res.data }))
       .catch(err => console.log(err));
   }
 
-  handleInputChange = event => {
-    const { currentBidder, value } = event.target;
-    this.setState({
-      [currentBidder]: value
-    });
-  };
+  setBidder() {
+    API.getCurrentBidder()
+      .then(res => this.setState({ currentBidder: res.data }))
+      .catch(err => console.log(err));
+  }
 
   render() {
     return (
       <Container fluid>
         <Row>
         <Col size="md-12">
-        <h1 className= "item-detail-header">Item Detail - {this.state.item.name}</h1>
-        </Col>
-        </Row>
-        <Row>
-          <Col size="md-6">
+        <h1 className= "item-detail-header">Item Detail - {this.state.item.name} {this.state.item.description}</h1>
           <img className= "item-detail-image" src= {this.state.item.image}/>
-          </Col>
-          <Col size="md-6">
-              <p>{this.state.item.description}</p>
-              <p> <strong>Current Bid:</strong> ${this.state.item.currentBid}</p>
-              <p><strong>Current Bidder:</strong> {this.state.item.currentBidder}</p>
-              <BidBtn />
+              <p className= "item-detail-header"><strong>Current Bid:</strong> ${this.state.item.currentBid}</p>
+              <p className= "item-detail-header"><strong>Current Bidder:</strong> {this.state.item.currentBidder}</p>
+              <div className= "item-detail-header"> <BidBtn /> </div>
           </Col>
         </Row>
         <Row>
           <Col size="md-12">
-            <Link to="/auction">← Back to Auction</Link>
+          <div className= "item-detail-header"> <Link to="/auction">← Back to Auction</Link></div>
           </Col>
         </Row>
       </Container>
