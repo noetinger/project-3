@@ -17,4 +17,12 @@ export default {
   saveItem: function(itemData) {
     return axios.post("/api/auctionitems", itemData);
   }
+  // ,
+
+  // getCurrentBidder: function(id, token) {
+  //   return axios.get("/api/auctionitems/" + id {
+  //     currentBidder,
+  //     localStorage.get("token")
+  //   })
+  // }
 };
