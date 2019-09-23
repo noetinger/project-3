@@ -1,12 +1,44 @@
 #logOutBtn{
     background-color: #8ec63f;;
     box-shadow: 0 0 0 1px #ebebeb inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset, 0 1px 3px 1px rgba(0, 0, 0, .1);
-    font-family: 'Roboto Condensed'
+    font-family: 'Roboto Condensed';
+    overflow: unset;
+    background-image: none;
+    background: #8ec63f;
+    border: 2px solid #8ec63f;
+    color: #232a2d;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Roboto Condensed';
+    font-weight: 700;
+    padding: 5px 23px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    vertical-align: middle;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    position: relative;
+    z-index: 0;
     
 }
 
+#box{
+    text-align: center;
+    background: #fff;
+    border-radius: 2px;
+    border-width: 2px;
+    border: 2px;
+    overflow: hidden;
+    border-style: solid;
+    border-color: black;
+    margin: 10px;
+    padding-left: 30px;
+    padding: 10px;
+}
+
 #logOutBtn:hover{
-    background-color: antiquewhite
+    background-color: antiquewhite;
+    
 }
 
 #confirmText{

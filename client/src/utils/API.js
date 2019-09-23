@@ -16,13 +16,9 @@ export default {
   // Saves a auction item to the database
   saveItem: function(itemData) {
     return axios.post("/api/auctionitems", itemData);
-  }
-  // ,
+  },
 
-  // getCurrentBidder: function(id, token) {
-  //   return axios.get("/api/auctionitems/" + id {
-  //     currentBidder,
-  //     localStorage.get("token")
-  //   })
-  // }
+  getCurrentBidder: function(id) {
+    return axios.get("/api/users/" + id);
+  }
 };
