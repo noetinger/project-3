@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import API from "../utils/API";
 import axios from "axios";
+import 'whatwg-fetch';
 //on click disable button, set a timeout in a global varible, use boolean
 
 class Detail extends Component {
@@ -18,11 +19,22 @@ class Detail extends Component {
   buttonClicked = event => {
     const getToken = localStorage.getItem('token');
     const userID = getToken.split(".");
-    const name = userID[1];
+    const name = (userID[1] + " " + userID[2]);
+    let newBid = "";
     this.setState({
-      currentBidder: name
+      currentBidder: name,
+      currentBid: newBid
     });
-    // this.item.currentBidder = this.state.currentBidder;
+    fetch('/api/auctionitems/'+ this.props.match.params.id, {
+      method: 'PUT',
+      headers: {
+      'Content-Type': 'application/json'
+    }
+    })
+    .then(res => console.log(res))
+    // need to update database
+    
+    // this.item.state.currentBidder = this.state.currentBidder;
     console.log('Button was clicked!')
     console.log(userID[1],userID[2]);
     console.log('this is:', this);
