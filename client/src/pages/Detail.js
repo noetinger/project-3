@@ -44,6 +44,7 @@ class Detail extends Component {
               <div className= "item-detail-header"> <BidBtn /> </div>
           </Col>
         </Row>
+        <br></br>
         <Row>
           <Col size="md-12">
           <div className= "item-detail-header"> <Link to="/auction">← Back to Auction</Link></div>
