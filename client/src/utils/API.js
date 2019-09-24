@@ -18,7 +18,7 @@ export default {
     return axios.post("/api/auctionitems", itemData);
   },
 
-  getCurrentBidder: function(id) {
-    return axios.get("/api/users/" + id);
+  updateBid: function(id) {
+    return axios.put("/api/auctionitems/" + id)
   }
 };

@@ -28,9 +28,9 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
-  getCurrentBidder: function(req, res) {
+  updateCurrentBidder: function(req, res) {
     db.AuctionItem
-      .findById(req.params.id)
+      .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
