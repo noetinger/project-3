@@ -154,7 +154,7 @@ accountsRouter.post('/signin', (req, res, next) => {
       return res.send({
         success: true,
         message: 'Valid Sign In',
-        token: `${doc._id}.${user._id}`
+        token: `${doc._id}.${user.firstName}.${user.lastName}`
       })
     });
   });

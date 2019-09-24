@@ -27,31 +27,7 @@ class AuctionItems extends Component {
       .catch(err => console.log(err));
   };
 
-  saveItem = id => {
-    API.saveItem(id)
-      .then(res => this.loadItems())
-      .catch(err => console.log(err));
-  };
-
-  handleInputChange = event => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
-  };
-
-  handleFormSubmit = event => {
-    event.preventDefault();
-    if (this.state.title && this.state.author) {
-      API.saveItem({
-        title: this.state.title,
-        author: this.state.author,
-        synopsis: this.state.synopsis
-      })
-        .then(res => this.loadItems())
-        .catch(err => console.log(err));
-    }
-  };
+  
 
   render() {
     return (

@@ -16,5 +16,9 @@ export default {
   // Saves a auction item to the database
   saveItem: function(itemData) {
     return axios.post("/api/auctionitems", itemData);
+  },
+
+  updateBid: function(id) {
+    return axios.put("/api/auctionitems/" + id)
   }
 };

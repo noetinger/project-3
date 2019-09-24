@@ -27,6 +27,23 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+
+  // updateCurrentBidder: function(req, res) {
+  //   db.AuctionItem
+  //     .findOneAndUpdate({ _id: req.params.id }, req.body)
+  //     .then(dbModel => res.json(dbModel))
+  //     .catch(err => res.status(422).json(err));
+  //   },
+
+  updateCurrentBidder: function (req, res) {
+        db.AuctionItem
+          .findByIdAndUpdate(req.params.id, { $set: {
+            currentBidder: this.state.name }
+          })
+          .then(dbModel => res.json(dbModel))
+          .catch(err => res.status(502).json(err))
+      },
+
   remove: function(req, res) {
     db.AuctionItem
       .findById({ _id: req.params.id })
@@ -34,4 +51,6 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
+
+
 };
