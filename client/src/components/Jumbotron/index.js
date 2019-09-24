@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-import auction from './../../auction.jpg'; // with import
+import auction from './../../assets/images/auction.jpg'; // with import
 
 function Jumbotron() {
   return (
