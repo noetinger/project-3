@@ -1,29 +1,26 @@
 body {
     font-family: "Roboto Condensed";
 }
-
 h1{
     font-family: "Roboto Condensed";
 }
-
 p {
     font-family: "Roboto Condensed";
 }
-
 h4 {
     color: black;
 }
-
 h5 {
     color: black;
 }
-
 .item-detail-header {
     text-align: center;
 }
-
+.item-detail-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 .noaccount {
     text-align: center;
 }
-
-

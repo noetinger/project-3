@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
 import LogOutPage from "./pages/LogOutPage";
 import SignUpPage from "./pages/SignUpPage";
+import { PrivateRoute } from "./components/PrivateRoute"
 import "./App.css";
 
 
@@ -18,10 +19,10 @@ function App() {
         <Nav />
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route exact path="/SignUp" component={SignUpPage} />
-          <Route exact path="/logout" component={LogOutPage} />
-          <Route exact path="/auction" component={AuctionList} />
-          <Route exact path="/auction/:id" component={Detail} />
+          <PrivateRoute exact path="/SignUp" component={SignUpPage} />
+          <PrivateRoute exact path="/logout" component={LogOutPage} />
+          <PrivateRoute exact path="/auction" component={AuctionList} />
+          <PrivateRoute exact path="/auction/:id" component={Detail} />
           <Route component={NoMatch} />
         </Switch>
         <Footer />
@@ -29,5 +30,4 @@ function App() {
     </Router>
   );
 }
-
 export default App;

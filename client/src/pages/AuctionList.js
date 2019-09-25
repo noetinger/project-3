@@ -1,6 +1,6 @@
 //Page for all the auction list items available to bid on.
 import React, { Component } from "react";
-import BidBtn from "../components/BidBtn";
+// import BidBtn from "../components/BidBtn";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
@@ -14,43 +14,15 @@ class AuctionItems extends Component {
     name: "",
     currentBidder: ""
   };
-
   componentDidMount() {
     this.loadItems();
   }
-
   loadItems = () => {
     API.getItems()
       .then(res =>
         this.setState({ items: res.data})
       )
       .catch(err => console.log(err));
-  };
-
-  saveItem = id => {
-    API.saveItem(id)
-      .then(res => this.loadItems())
-      .catch(err => console.log(err));
-  };
-
-  handleInputChange = event => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
-  };
-
-  handleFormSubmit = event => {
-    event.preventDefault();
-    if (this.state.title && this.state.author) {
-      API.saveItem({
-        title: this.state.title,
-        author: this.state.author,
-        synopsis: this.state.synopsis
-      })
-        .then(res => this.loadItems())
-        .catch(err => console.log(err));
-    }
   };
 
   render() {
@@ -88,5 +60,4 @@ class AuctionItems extends Component {
     );
   }
 }
-
 export default AuctionItems;

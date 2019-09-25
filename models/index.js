@@ -1,3 +1,5 @@
 module.exports = {
-  AuctionItem: require("./item")
+  AuctionItem: require("./item"),
+  User: require("./User"),
+  UserSessions: require("./UserSessions")
 };

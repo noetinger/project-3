@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.css";
-
+import { getFromStorage } from '../../utils/storage';
+import 'whatwg-fetch';
 // The ...props means, spread all of the passed props onto this element
 // That way we don't have to define them all individually
 function BidBtn(props) {
@@ -10,5 +11,4 @@ function BidBtn(props) {
     </span>
   );
 }
-
 export default BidBtn;
