@@ -30,6 +30,8 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+
+
   updateCurrentBidder: function (req, res) {
     const newBidderName = req.header('Authorization')
       .split('.')
@@ -54,4 +56,7 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
+
+  
+
 };

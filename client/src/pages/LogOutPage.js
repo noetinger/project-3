@@ -4,7 +4,7 @@ class LogOutPage extends Component {
     render(){
         return(
             <>
-            <LogOut />
+                <LogOut />
             </>
         );
     }
