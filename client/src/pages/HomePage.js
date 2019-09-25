@@ -1,5 +1,4 @@
 //"Homepage" for Signing into user account. 
-
 import React, { Component } from "react";
 // import Home from "../components/Home";
 import SignIn from "../components/SignIn";
@@ -7,7 +6,6 @@ import SignUp from "../components/SignUp";
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
 import "../App.css"
-
 class HomePage extends Component {
 //Might have to add parts from Home.js to the HomePage file...
     render(){
@@ -18,7 +16,6 @@ class HomePage extends Component {
         </Row>
         <Row>
         <Col size="md-4 sm-12">
-
             </Col>
         <Col size="md-4 sm-12">
             <SignIn />
@@ -35,5 +32,4 @@ class HomePage extends Component {
         );
     }
 }
-
 export default HomePage;

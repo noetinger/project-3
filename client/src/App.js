@@ -9,8 +9,6 @@ import HomePage from "./pages/HomePage";
 import LogOutPage from "./pages/LogOutPage";
 import SignUpPage from "./pages/SignUpPage";
 import "./App.css";
-
-
 function App() {
   return (
     <Router>
@@ -29,5 +27,4 @@ function App() {
     </Router>
   );
 }
-
 export default App;

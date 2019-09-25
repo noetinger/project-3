@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-
 const ItemSchema = new Schema({
   item: {
     type: Number,
@@ -48,7 +47,5 @@ const ItemSchema = new Schema({
     required: true
   }
 });
-
 const AuctionItem = mongoose.model('AuctionItem', ItemSchema);
-
 module.exports = AuctionItem;
