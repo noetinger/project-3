@@ -1,7 +1,6 @@
 const User = require('../../models/User');
 const UserSession = require('../../models/UserSessions');
 const accountsRouter = require("express").Router();
-
 //SignUp Route ******************************************************************
 accountsRouter.post('/signup', (req, res, next) => {
   const {
@@ -15,7 +14,6 @@ accountsRouter.post('/signup', (req, res, next) => {
   let {
     email
   } = body;
-
   if (!firstName) {
     return res.send({
       success: false,

@@ -3,11 +3,11 @@ import React, { Component } from "react";
 import SignUp from "../components/SignUp";
 import { Col, Row, Container } from "../components/Grid";
 import "../App.css"
-
 class SignUpPage extends Component {
     render(){
         return(
             <Container fluid>
+
                 <Row>
                     <br></br>
                 </Row>
@@ -25,9 +25,9 @@ class SignUpPage extends Component {
                 </Row>
                 <Row>
                 </Row>
+
             </Container>
         );
     }
 }
-
 export default SignUpPage;

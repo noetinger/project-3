@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import 'whatwg-fetch';
-
 import {
   getFromStorage,
   setInStorage,
 } from '../../utils/storage';
-
 class Home extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       isLoading: true,
       token: '',
@@ -20,20 +17,16 @@ class Home extends Component {
       signUpFirstName: '',
       SignUpLastName: '',
     };
-
     this.onTextboxChangeSignInEmail = this.onTextboxChangeSignInEmail.bind(this);
     this.onTextboxChangeSignInPassword = this.onTextboxChangeSignInPassword.bind(this);
     this.onTextboxChangeSignUpEmail = this.onTextboxChangeSignUpEmail.bind(this);
     this.onTextboxChangeSignUpPassword = this.onTextboxChangeSignUpPassword.bind(this);
-
     this.onTextboxChangeSignUpFirstName = this.onTextboxChangeSignUpFirstName.bind(this);
     this.onTextboxChangeSignUpLastName = this.onTextboxChangeSignUpLastName.bind(this);
-    
     this.onSignIn = this.onSignIn.bind(this);
     this.onSignUp = this.onSignUp.bind(this);
     this.logout = this.logout.bind(this);
   }
-
   componentDidMount() {
     const obj = getFromStorage('the_main_app');
     if (obj && obj.token) {
@@ -59,43 +52,36 @@ class Home extends Component {
       });
     }
   }
-
   onTextboxChangeSignInEmail(event) {
     this.setState({
       signInEmail: event.target.value,
     });
   }
-
   onTextboxChangeSignInPassword(event) {
     this.setState({
       signInPassword: event.target.value,
     });
   }
-
   onTextboxChangeSignUpEmail(event) {
     this.setState({
       signUpEmail: event.target.value,
     });
   }
-
   onTextboxChangeSignUpPassword(event) {
     this.setState({
       signUpPassword: event.target.value,
     });
   }
-
   onTextboxChangeSignUpFirstName(event) {
     this.setState({
       signUpFirstName: event.target.value,
     });
   }
-
   onTextboxChangeSignUpLastName(event) {
     this.setState({
       SignUpLastName: event.target.value,
     });
   }
-
   onSignUp() {
     // Grab state
     const {
@@ -104,11 +90,9 @@ class Home extends Component {
       signUpEmail,
       signUpPassword,
     } = this.state;
-
     this.setState({
       isLoading: true,
     });
-
     // Post request to backend
     fetch('/api/account/signup', {
       method: 'POST',
@@ -127,14 +111,6 @@ class Home extends Component {
         if (json.success) {
            //Redirect to auction list on success
             window.location.pathname = '/auction';
-          // this.setState({
-          //   signUpError: json.message,
-          //   isLoading: false,
-          //   signUpFirstName: '',
-          //   SignUpLastName: '',
-          //   signUpEmail: '',
-          //   signUpPassword: '',
-          // })
         } else {
           this.setState({
             signUpError: json.message,
@@ -143,18 +119,15 @@ class Home extends Component {
         }
       });
   }
-
   onSignIn() {
     // Grab state
     const {
       signInEmail,
       signInPassword,
     } = this.state;
-    
     this.setState({
       isLoading: true,
     });
-
     // Post request to backend
     fetch('/api/account/signin', {
       method: 'POST',
@@ -172,13 +145,6 @@ class Home extends Component {
           setInStorage('the_main_app', { token: json.token });
           //Redirect to auction list on success
           window.location.pathname = '/auction';
-          // this.setState({
-          //   signInError: json.message,
-          //   isLoading: false,
-          //   signInPassword: '',
-          //   signInEmail: '',
-          //   token: json.token,
-          // });
         } else {
           this.setState({
             signInError: json.message,
@@ -187,7 +153,6 @@ class Home extends Component {
         }
       });
   }
-
   logout() {
     this.setState({
       isLoading: true,
@@ -216,7 +181,6 @@ class Home extends Component {
       });
     }
   }
-
   render() {
     const {
       isLoading,
@@ -230,11 +194,9 @@ class Home extends Component {
       signUpPassword,
       signUpError,
     } = this.state;
-
     if (isLoading) {
       return (<div><p>Loading...</p></div>);
     }
-
     if (!token) {
       return (
         <div>
@@ -296,11 +258,9 @@ class Home extends Component {
             /><br />
             <button onClick={this.onSignUp}>Sign Up</button>
           </div>
-
         </div>
       );
     }
-
     return (
       <div>
         <p>Press the button below to confirm your logout</p>
@@ -309,5 +269,4 @@ class Home extends Component {
     );
   }
 }
-
 export default Home;
