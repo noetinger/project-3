@@ -78,7 +78,6 @@ class Detail extends Component {
   }
 
   render() {
-<<<<<<< HEAD
     return (
       <Container fluid>
         <Row>
@@ -101,52 +100,6 @@ class Detail extends Component {
           </Col>
         </Row>
       </Container>
-=======
-    return ( <
-      Container fluid >
-      <
-      Row >
-      <
-      Col size = "md-12" >
-      <
-      h1 className = "item-detail-header" > Item# {
-        this.state.item.id
-      } - {
-        this.state.item.name
-      } {
-        this.state.item.description
-      } < /h1> <
-      img className = "item-detail-image"
-      src = {
-        this.state.item.image
-      }
-      /> <
-      p className = "item-detail-header" > < strong > Item Condition: < /strong> {this.state.item.condition}</p >
-      <
-      p className = "item-detail-header" > < strong > Current Bid: < /strong> ${this.state.item.currentBid}</p >
-      <
-      p className = "item-detail-header" > < strong > Bid Increment: < /strong> ${this.state.item.bidIncrement}</p >
-      <
-      p className = "item-detail-header" > < strong > Current Bidder: < /strong> {this.state.item.currentBidder}</p >
-      <
-      div className = "item-detail-header" >
-      <
-      button onClick = {
-        this.buttonClicked
-      } > Bid Now! < /button> < /
-      div > <
-      /Col> < /
-      Row > <
-      Row >
-      <
-      Col size = "md-12" >
-      <
-      div className = "item-detail-header" > < Link to = "/auction" > ←Back to Auction < /Link></div >
-      <
-      /Col> < /
-      Row > <
-      /Container>
->>>>>>> c3b32daca22c6f975459ea9fa172035ffa710ad3
     );
   };
 }
