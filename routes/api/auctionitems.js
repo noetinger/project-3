@@ -10,6 +10,6 @@ router
   .route("/:id")
   .get(itemsController.findById)
   .put(itemsController.updateCurrentBidder)
-  
+
 
 module.exports = router;
