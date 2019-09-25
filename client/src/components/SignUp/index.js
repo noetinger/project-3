@@ -136,14 +136,16 @@ class Home extends Component {
 
     if (!token) {
       return (
-        <div className="signup">
+        <div class="signup">
           <div>
             {
               (signUpError) ? (
                 <p>{signUpError}</p>
               ) : (null)
             }
+            <div class="newaccount">
             <p>Don't have an account? Sign up!</p>
+            </div>
             <input
               type="string"
               placeholder="First Name"
