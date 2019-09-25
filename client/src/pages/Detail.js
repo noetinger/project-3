@@ -28,7 +28,8 @@ class Detail extends Component {
     const getToken = localStorage.getItem('token');
     const userID = getToken.split(".");
     const name = (userID[1] + " " + userID[2]);
-    let newBid = "";
+    let newBid = this.state.item.currentBid += this.state.item.bidIncrement
+
     this.setState({
       currentBidder: name,
       currentBid: newBid
@@ -38,16 +39,16 @@ class Detail extends Component {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': localStorage.getItem('token')
-          
-        }
+        },
+        body: JSON.stringify({newBid})
       })
       .then(res => console.log(res))
     // need to update database
 
     // this.item.state.currentBidder = this.state.currentBidder;
-    console.log('Button was clicked!')
-    console.log(userID[1], userID[2]);
-    console.log('this is:', this);
+    // console.log('Button was clicked!')
+    // console.log(userID[1], userID[2]);
+    // console.log('this is:', this);
   }
 
   handleInputChange = event => {
