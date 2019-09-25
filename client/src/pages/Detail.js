@@ -40,7 +40,9 @@ class Detail extends Component {
           'Content-Type': 'application/json',
           'Authorization': localStorage.getItem('token')
         },
-        body: JSON.stringify({newBid})
+        body: JSON.stringify({
+          newBid
+        })
       })
       .then(res => console.log(res))
     // need to update database
@@ -104,7 +106,7 @@ class Detail extends Component {
       <
       p className = "item-detail-header" > < strong > Bid Increment: < /strong> ${this.state.item.bidIncrement}</p >
       <
-      p className = "item-detail-header" > < strong > Current Bidder: < /strong> {this.state.item.currentBidder}</p >
+      p className = "item-detail-header" > < strong > Current Bidder: < /strong> {this.state.currentBidder}</p >
       <
       div className = "item-detail-header" >
       <
