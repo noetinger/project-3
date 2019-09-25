@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import 'whatwg-fetch';
 import "./style.css"
-
 import {
   getFromStorage,
 //   setInStorage,
 } from '../../utils/storage';
-
 class Home extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       isLoading: true,
       token: '',
@@ -20,14 +17,12 @@ class Home extends Component {
       signUpFirstName: '',
       SignUpLastName: '',
     };
-
     this.onTextboxChangeSignUpEmail = this.onTextboxChangeSignUpEmail.bind(this);
     this.onTextboxChangeSignUpPassword = this.onTextboxChangeSignUpPassword.bind(this);
     this.onTextboxChangeSignUpFirstName = this.onTextboxChangeSignUpFirstName.bind(this);
     this.onTextboxChangeSignUpLastName = this.onTextboxChangeSignUpLastName.bind(this);
     this.onSignUp = this.onSignUp.bind(this);
   }
-
   componentDidMount() {
     const obj = getFromStorage('the_main_app');
     if (obj && obj.token) {
@@ -53,31 +48,26 @@ class Home extends Component {
       });
     }
   }
-
   onTextboxChangeSignUpEmail(event) {
     this.setState({
       signUpEmail: event.target.value,
     });
   }
-
   onTextboxChangeSignUpPassword(event) {
     this.setState({
       signUpPassword: event.target.value,
     });
   }
-
   onTextboxChangeSignUpFirstName(event) {
     this.setState({
       signUpFirstName: event.target.value,
     });
   }
-
   onTextboxChangeSignUpLastName(event) {
     this.setState({
       SignUpLastName: event.target.value,
     });
   }
-
   onSignUp() {
     // Grab state
     const {
@@ -86,11 +76,9 @@ class Home extends Component {
       signUpEmail,
       signUpPassword,
     } = this.state;
-
     this.setState({
       isLoading: true,
     });
-
     // Post request to backend
     fetch('/api/account/signup', {
       method: 'POST',
@@ -118,7 +106,6 @@ class Home extends Component {
         }
       });
   }
-
   render() {
     const {
       isLoading,
@@ -129,11 +116,9 @@ class Home extends Component {
       signUpPassword,
       signUpError,
     } = this.state;
-
     if (isLoading) {
       return (<div><p>Loading...</p></div>);
     }
-
     if (!token) {
       return (
         <div className="signup">
@@ -181,5 +166,4 @@ class Home extends Component {
     }
   }
 }
-
 export default Home;

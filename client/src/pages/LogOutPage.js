@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import LogOut from "../components/LogOut";
-
 class LogOutPage extends Component {
     render(){
         return(
@@ -10,5 +9,4 @@ class LogOutPage extends Component {
         );
     }
 }
-
 export default LogOutPage;

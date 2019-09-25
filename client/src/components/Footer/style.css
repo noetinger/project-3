@@ -5,19 +5,12 @@
  div{
      width:100% !important;
  }
- /*@media screen and (min-width: 601px) {
-     .dev-name {
-       display: none;
-     }
- }*/
-
-.dev-danger{
+ .dev-danger{
   color: orange
 }
-
- @media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
     #footer {
-      display: block;
+    display: block;
 
     }
 }

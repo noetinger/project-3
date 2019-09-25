@@ -2,16 +2,13 @@
 import React, { Component } from 'react';
 import 'whatwg-fetch';
 import "./style.css";
-
 import {
   getFromStorage,
   setInStorage,
 } from '../../utils/storage';
-
 class SignIn extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       isLoading: true,
       token: '',
@@ -19,12 +16,10 @@ class SignIn extends Component {
       signInEmail: '',
       signInPassword: '',
     };
-
     this.onTextboxChangeSignInEmail = this.onTextboxChangeSignInEmail.bind(this);
     this.onTextboxChangeSignInPassword = this.onTextboxChangeSignInPassword.bind(this);
     this.onSignIn = this.onSignIn.bind(this);
   }
-
   componentDidMount() {
     const token = getFromStorage('token');
     if (token !== '') {
@@ -49,30 +44,25 @@ class SignIn extends Component {
       });
     }
   }
-
   onTextboxChangeSignInEmail(event) {
     this.setState({
       signInEmail: event.target.value,
     });
   }
-
   onTextboxChangeSignInPassword(event) {
     this.setState({
       signInPassword: event.target.value,
     });
   }
-
   onSignIn() {
     // Grab state
     const {
       signInEmail,
       signInPassword,
     } = this.state;
-    
     this.setState({
       isLoading: true,
     });
-
     // Post request to backend
     fetch('/api/account/signin', {
       method: 'POST',
@@ -98,12 +88,10 @@ class SignIn extends Component {
         }
       });
   }
-
   toAuctionList(){
     //Redirect to auction list on success
     window.location.pathname = '/auction';
   }
-
   render() {
     const {
       isLoading,
@@ -112,11 +100,9 @@ class SignIn extends Component {
       signInEmail,
       signInPassword,
     } = this.state;
-
     if (isLoading) {
       return (<div><p>Loading...</p></div>);
     }
-
     if (!token) {
       return (
         <div className="signin">
@@ -155,5 +141,4 @@ class SignIn extends Component {
     }
   }
 }
-
 export default SignIn;

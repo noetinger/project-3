@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import SignUp from "../components/SignUp";
 import { Col, Row, Container } from "../components/Grid";
 import "../App.css"
-
 class SignUpPage extends Component {
 //Might have to add parts from Home.js to the HomePage file...
     render(){
@@ -14,7 +13,6 @@ class SignUpPage extends Component {
         </Row>
         <Row>
         <Col size="md-4 sm-12">
-
             </Col>
         <Col size="md-4 sm-12">
             <SignUp />
@@ -31,5 +29,4 @@ class SignUpPage extends Component {
         );
     }
 }
-
 export default SignUpPage;
