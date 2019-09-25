@@ -25,6 +25,7 @@ class Detail extends Component {
       currentBidder: name,
       currentBid: newBid
     });
+    
     fetch('/api/auctionitems/'+ this.props.match.params.id, {
       method: 'PUT',
       headers: {
