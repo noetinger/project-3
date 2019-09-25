@@ -1,12 +1,12 @@
 //Page for all the auction list items available to bid on.
 import React, { Component } from "react";
-import BidBtn from "../components/BidBtn";
+// import BidBtn from "../components/BidBtn";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
-import { Input, TextArea, FormBtn } from "../components/Form";
+// import { Input, TextArea, FormBtn } from "../components/Form";
 
 class AuctionItems extends Component {
   state = {
@@ -26,8 +26,6 @@ class AuctionItems extends Component {
       )
       .catch(err => console.log(err));
   };
-
-  
 
   render() {
     return (

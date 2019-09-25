@@ -40,15 +40,11 @@ accountsRouter.post('/signup', (req, res, next) => {
       message: 'Error: Password cannot be blank.'
     });
   }
-
   console.log("signin.js")
-
   email = email.toLowerCase();
 
-
   //Steps:
-  //1. Verify email doesn't exist
-  //2. Save
+  //Find and Verify email doesn't exist
   User.find({
     email: email,
   }, (err, previousUsers) => {
@@ -68,7 +64,6 @@ accountsRouter.post('/signup', (req, res, next) => {
       console.log("Save New User - SignUp Method");
       //Save the new user
       const newUser = new User();
-
       newUser.email = email;
       newUser.firstName = firstName;
       newUser.lastName = lastName;
@@ -116,6 +111,7 @@ accountsRouter.post('/signin', (req, res, next) => {
 
   email = email.toLowerCase();
 
+  //find user by email
   User.find({
     email: email
   }, (err, users) => {
@@ -131,7 +127,8 @@ accountsRouter.post('/signin', (req, res, next) => {
         message: 'Error: Invalid Credentials'
       });
     }
-
+  //validate user password
+    //Wrong Password:
     const user = users[0]
     if (!user.validPassword(password)) {
       return res.send({
@@ -139,7 +136,7 @@ accountsRouter.post('/signin', (req, res, next) => {
         message: 'Error: Invalid Password'
       });
     }
-    //Otherwise correct user
+    //Correct Password:
     console.log("Signing In User")
     const userSession = new UserSession();
     userSession.userId = user._id;
@@ -150,7 +147,7 @@ accountsRouter.post('/signin', (req, res, next) => {
           message: 'Error: Server Error on Signin'
         });
       }
-      // access user ID token.split('.')[1];********************************
+      //Return successful signin and create token.
       return res.send({
         success: true,
         message: 'Valid Sign In',
@@ -204,10 +201,8 @@ accountsRouter.get('/logout', (req, res, next) => {
     token
   } = req.query;
   console.log(token);
-  // const token = full_token.split('.')[0];
-  // console.log(token);
 
-  //Find token and delete to logout
+  //Find token and delete it - logout
   UserSession.findOneAndUpdate({
     _id: token.split('.')[0],
     isDeleted: false
