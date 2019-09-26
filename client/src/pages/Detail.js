@@ -76,7 +76,8 @@ class Detail extends Component {
 
   render() {
 
-    return ( < Container fluid >
+    return ( 
+    <Container fluid >
       <Row >
       <Col size = "md-12" >
       < h1 className = "item-detail-header" > Item# {this.state.item.id} - {this.state.item.name} 
@@ -93,11 +94,10 @@ class Detail extends Component {
       
       <Row >
       <Col size = "md-12" >
-      <div className = "item-detail-header" > < Link to = "/auction" > ←Back to Auction < /Link></div >
+      <div className = "item-detail-header" > < Link to = "/auction" > ←Back to Auction </Link></div >
       </Col> 
       </Row > 
     </Container>
-
     );
   };
 }
