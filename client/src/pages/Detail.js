@@ -85,7 +85,7 @@ class Detail extends Component {
       <p className = "item-detail-header" > < strong > Bid Increment: </strong> ${this.state.item.bidIncrement}</p >
       <p className = "item-detail-header" > < strong > Current Bidder: </strong> {this.state.item.currentBidder}</p >
       <div className = "item-detail-header" >
-      <button onClick = {this.buttonClicked} > Bid Now! </button> 
+      <button className= "button" onClick = {this.buttonClicked} > Bid Now! </button> 
       </div > 
       </Col> 
       </Row > 
