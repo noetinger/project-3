@@ -1,12 +1,21 @@
 .signup {
+    
     text-align: center;
     background: #fff;
     border-radius: 2px;
     border-width: 2px;
-    border: 2px;
+    border: 4px;
     overflow: hidden;
     border-style: solid;
     border-color: black;
     margin: 10px;
     padding: 10px;
+}
+
+.noaccount{
+    font-weight: bold;
+}
+
+p{
+    font-weight: bold
 }

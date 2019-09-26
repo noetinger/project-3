@@ -37,11 +37,21 @@ module.exports = {
       .split('.')
       .slice(1)
       .join(' ');
+
+
+
+    console.log(req.body);
+
+
     db.AuctionItem
       .findByIdAndUpdate(req.params.id, {
         $set: {
           // change the name of the current bidder to the currently logged in user
-          currentBidder: newBidderName
+
+          currentBidder: newBidderName,
+          // change the bid ammount on click
+          currentBid: req.body.newBid
+
         }
       })
       .then(dbModel => res.json(dbModel))
