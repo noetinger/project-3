@@ -12,12 +12,10 @@ export function getFromStorage(key){
         return null;
     }
 }
-
 export function setInStorage(key, val){
     if (!key){
         console.error('Error: Key is missing');
     }
-
     try {
         localStorage.setItem(key, val)
     } catch (err){

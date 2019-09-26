@@ -75,6 +75,7 @@ class Detail extends Component {
   }
 
   render() {
+
     return ( < Container fluid >
       <Row >
       <Col size = "md-12" >
@@ -96,6 +97,7 @@ class Detail extends Component {
       </Col> 
       </Row > 
     </Container>
+
     );
   };
 }
