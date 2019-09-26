@@ -13,15 +13,8 @@ function Nav (props) {
                 <li className="nav-item active">
                     <a className="nav-link" href="/auction">Auction List <span className="sr-only">(current)</span></a>
                 </li>
-                <li className="nav-item dropdown">
-                    <a className="nav-link dropdown-toggle" href="/auction" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    My Account
-                    </a>
-                    <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a className="dropdown-item" href="#">My Bids</a>
-                    <div className="dropdown-divider"></div>
-                    <a className="dropdown-item" href="/logout">Log Out</a>
-                    </div>
+                <li className="nav-item active">
+                    <a className="nav-link" href="/logout"> Log Out <span className="sr-only">(current)</span></a>
                 </li>
             </ul>
         </div>
