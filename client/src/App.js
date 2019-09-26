@@ -19,7 +19,7 @@ function App() {
         <Nav />
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <PrivateRoute exact path="/SignUp" component={SignUpPage} />
+          <Route exact path="/SignUp" component={SignUpPage} />
           <PrivateRoute exact path="/logout" component={LogOutPage} />
           <PrivateRoute exact path="/auction" component={AuctionList} />
           <PrivateRoute exact path="/auction/:id" component={Detail} />
